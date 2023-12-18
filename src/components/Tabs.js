@@ -20,7 +20,7 @@ const Tabs = ({ weather, forecast }) => {
                 elevation: 0,
             },
             headerStyle: {
-                backgroundColor: 'rgba(0,0,0,0.5)',
+              height: 0
             },
             headerTitleStyle: {
                 fontWeight: 'bold',
@@ -58,7 +58,8 @@ const Tabs = ({ weather, forecast }) => {
              /> 
             <Tab.Screen 
               name={'City'} 
-              component={City} 
+              component={City}
+              initialParams={{ WeatherData: forecast }}
               options={{
                 tabBarIcon: ({ focused }) => (
                   <Feather 

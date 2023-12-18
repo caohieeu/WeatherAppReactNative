@@ -9,7 +9,7 @@ const CurrentWeather = ({ route }) => {
 
   const { main: {temp, feels_like, temp_max, temp_min}, weather } = WeatherData;
 
-  const weatherCondition = weather[0].main;
+  const weatherCondition = weather[0]?.main;
 
   return (
     <SafeAreaView style={[styles.wrapper, {backgroundColor: WeatherType[weatherCondition]}]}>
@@ -20,7 +20,7 @@ const CurrentWeather = ({ route }) => {
           <View style={{flex: 1, marginBottom: 50}}>
           <View style={styles.container}>
             <MaterialCommunityIcons 
-                    name={WeatherType[weatherCondition].icon}
+                    name={WeatherType[weatherCondition]?.icon}
                     size={100} 
                     color="black"
                     style={styles.iconStyle} />
@@ -35,8 +35,8 @@ const CurrentWeather = ({ route }) => {
             </View>
               <RowText 
                 containerStyles={styles.bodyWrapper}
-                textOne={weather[0].description}
-                textTwo={WeatherType[weatherCondition].message}
+                textOne={weather[0]?.description}
+                textTwo={WeatherType[weatherCondition]?.message}
                 textOneStyle={styles.description}
                 textTwoStyle={styles.message} />
           </View>

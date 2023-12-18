@@ -4,12 +4,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import Tabs from './src/components/Tabs';
 import useGetWeather from './src/hooks/useGetWeather';
 import useGetForecastWeather from './src/hooks/useGetForecastWeather';
-import moment from 'moment';
+import ErrorItem from './src/components/ErrorItem';
+
 const App = () => {
   const [loadingCurrent, errorCurrent, weatherCurrent] = useGetWeather();
   const [loadingForecast, errorForecast, weatherForecast] = useGetForecastWeather();
-  //console.log(loadingForecast, errorForecast, weatherForecast.list);
-  //console.log(loadingCurrent, errorCurrent, weatherCurrent);
   
   if(weatherCurrent && weatherCurrent.main && weatherForecast && weatherForecast.list) {
     return (
@@ -21,7 +20,7 @@ const App = () => {
   else {
     return (
       <View style={styles.container}>
-        <ActivityIndicator size={'large'} color={'blue'} />
+        {loadingCurrent || loadingForecast ? <ActivityIndicator size={'large'} color={'blue'} /> : <ErrorItem />}
       </View>
     )
   }
