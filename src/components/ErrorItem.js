@@ -6,7 +6,7 @@ const ErrorItem = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.errorMessage}>Sorry something went wrong</Text>
-            <Feather name={'frown'} size={100} color={'#e74c3c'} />
+            <Feather name={'frown'} size={100} color={'white'} />
         </View>
     )
 };
@@ -14,7 +14,7 @@ const ErrorItem = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'red',
+        backgroundColor: '#e74c3c',
         justifyContent: 'center',
         alignItems: 'center',
     },

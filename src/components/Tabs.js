@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import CurrentWeather from '../screens/CurrentWeather';
 import UpcomingWeather from '../screens/UpcomingWeather';
 import City from '../screens/City';
@@ -20,12 +21,16 @@ const Tabs = ({ weather, forecast }) => {
                 elevation: 0,
             },
             headerStyle: {
-              height: 0
+              backgroundColor: '#74b9ff',
+              shadowColor: 'black',
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 1,
+              shadowRadius: 10,
+              elevation: 13,
             },
             headerTitleStyle: {
-                fontWeight: 'bold',
-                fontSize: 25,
-                color: 'tomato'
+                fontSize: 23,
+                color: '#fff'
             }
           }}>
         <Tab.Screen 

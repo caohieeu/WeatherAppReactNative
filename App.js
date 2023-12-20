@@ -10,7 +10,8 @@ const App = () => {
   const [loadingCurrent, errorCurrent, weatherCurrent] = useGetWeather();
   const [loadingForecast, errorForecast, weatherForecast] = useGetForecastWeather();
   
-  if(weatherCurrent && weatherCurrent.main && weatherForecast && weatherForecast.list) {
+  if(weatherCurrent && weatherCurrent.main && weatherForecast 
+    && weatherForecast.list && !loadingCurrent && !loadingForecast) {
     return (
       <NavigationContainer>
           <Tabs weather={weatherCurrent} forecast={weatherForecast}/>
@@ -20,7 +21,7 @@ const App = () => {
   else {
     return (
       <View style={styles.container}>
-        {loadingCurrent || loadingForecast ? <ActivityIndicator size={'large'} color={'blue'} /> : <ErrorItem />}
+        {errorCurrent ||  errorForecast ? (<ErrorItem />) : <ActivityIndicator size={'large'} color={'blue'} />}
       </View>
     )
   }

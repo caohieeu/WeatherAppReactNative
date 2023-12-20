@@ -31,7 +31,9 @@ const useGetForecastWeather = (typeWeather) => {
           let location = await Location.getCurrentPositionAsync({});
           setLat(location.coords.latitude);
           setLon(location.coords.longitude);
-          await fetchWeatherData();
+          if (lat !== null && lon !== null) {
+            fetchWeatherData();
+        }
         })()
       }, [lat, lon])
     
